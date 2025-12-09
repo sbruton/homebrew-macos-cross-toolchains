@@ -18,8 +18,7 @@ jobs:
   build:
     name: Build ${{ matrix.target }} for ${{ matrix.os.arch }}
     if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'CI-build') }}
-    #runs-on: ${{ matrix.os.name }}
-    runs-on: self-hosted
+    runs-on: ${{ matrix.os.name }}
     strategy:
       fail-fast: false
       matrix:
@@ -43,13 +42,13 @@ jobs:
           # - mipsel-unknown-linux-gnu
     steps:
       - uses: actions/checkout@v4
-      #- name: Install crosstool-ng
-      #  run: |
-          # brew install coreutils
-          # brew install --HEAD crosstool-ng
-          # fix python env in the runner
-          # brew unlink python@3.12 && brew link --overwrite python@3.12
-          # python3 --version
+      - name: Install crosstool-ng
+        run: |
+          brew install coreutils
+          brew install --HEAD crosstool-ng
+          fix python env in the runner
+          brew unlink python@3.12 && brew link --overwrite python@3.12
+          python3 --version
       - name: Mount volumes
         run: |
           set -ex
