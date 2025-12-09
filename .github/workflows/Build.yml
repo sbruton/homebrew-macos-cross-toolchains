@@ -47,8 +47,9 @@ jobs:
           brew install coreutils
           brew install --HEAD crosstool-ng
           # fix python env in the runner
-          brew unlink python@3.12 && brew link --overwrite python@3.12
-          python3 --version
+          # still necessary?
+          #brew unlink python@3.12 && brew link --overwrite python@3.12
+          #python3 --version
       - name: Mount volumes
         run: |
           set -ex
