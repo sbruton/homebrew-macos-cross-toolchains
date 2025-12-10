@@ -2,12 +2,12 @@ class MipselUnknownLinuxGnu < Formula
   desc "mipsel-unknown-linux-gnu Toolchain"
   homepage "https://github.com/messense/homebrew-macos-cross-toolchains"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  version "13.3.0"
+  version "15.2.0"
 
   depends_on "bdw-gc"
   depends_on "guile"
   depends_on "zstd"
-  depends_on "python@3.12"
+  depends_on "python@3.14"
 
   if Hardware::CPU.arm?
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.3.0/mipsel-unknown-linux-gnu-aarch64-darwin.tar.gz"
